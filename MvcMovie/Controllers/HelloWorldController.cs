@@ -10,17 +10,19 @@ namespace MvcMovie.Controllers
     public class HelloWorldController : Controller
     {
         //HTTP Get /HelloWorld
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View(); //This calles the View method, which uses a view template to generate a view response
         }
 
         //HTTP Get /HelloWorld/Welcome
-        public string Welcome(string name, int numTimes = 1)
+        public string Welcome(string name, int ID = 1)
         {
-            return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
         }
 
         //Running this and editing the localhost to localhost/HelloWorld would load a page with just the return of Index.
+
+        //MapControllerRoute  contains the routing format in Startup.cs. 
     }
 }
